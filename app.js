@@ -11,6 +11,11 @@ const openai = new OpenAI({
   apiKey: OPENAI_API_KEY,
 });
 
+app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      next();
+});
+
 // Middleware to parse JSON bodies
 app.use(express.json());
 
